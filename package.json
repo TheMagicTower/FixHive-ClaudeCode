@@ -1,0 +1,49 @@
+{
+  "name": "@the-magic-tower/fixhive-claude-code",
+  "version": "0.1.0",
+  "description": "Community-based Error Knowledge Sharing for Claude Code",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "fixhive-claude-code": "./dist/index.js",
+    "fixhive-hook-handler": "./dist/hooks/post-tool-handler.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "postinstall": "node dist/scripts/install-hooks.js || true"
+  },
+  "keywords": [
+    "claude-code",
+    "mcp",
+    "error-detection",
+    "knowledge-sharing",
+    "developer-tools"
+  ],
+  "author": "The Magic Tower",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "better-sqlite3": "^11.3.0",
+    "pino": "^9.5.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "files": [
+    "dist",
+    "scripts/setup-supabase.sql"
+  ]
+}
