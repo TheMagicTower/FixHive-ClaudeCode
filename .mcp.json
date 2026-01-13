@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fixhive": {
+      "command": "npx",
+      "args": ["-y", "@the-magic-tower/fixhive-claude-code@beta"]
+    }
+  }
+}

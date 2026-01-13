@@ -14,59 +14,37 @@
 
 > Community-based Error Knowledge Sharing for Claude Code (CodeCaseDB v2.0)
 
-FixHive is a Claude Code MCP server that automatically captures errors during development sessions, queries a community knowledge base for solutions, and shares resolved errors with other developers.
+FixHive is a Claude Code plugin that provides slash commands, MCP tools, and integrations for searching and sharing error solutions with the developer community.
 
 ## Features
 
+- **Slash Commands**: `/fixhive:search` and `/fixhive:report` for quick access
+- **MCP Tools**: `fixhive_search_cases`, `fixhive_report_resolution`, `fixhive_vote`
 - **Cloud Knowledge Base**: Search community solutions using semantic similarity (pgvector)
 - **AI-Guided Normalization**: Normalize error signatures for better matching
 - **Environment Matching**: Solutions ranked by language, framework, and package compatibility
 - **Privacy Filtering**: Automatically redacts sensitive data (API keys, paths, emails)
 - **Community Voting**: Upvote/downvote solutions to help identify the best fixes
 
-## Upgrading from v1.x
-
-If you're upgrading from v1.x, please read the [Migration Guide](MIGRATION.md) for important changes:
-
-- **Tool names changed**: `fixhive_search` → `fixhive_search_cases`, etc.
-- **Local storage removed**: No more `.fixhive/` directory
-- **Automatic device ID**: No need to set `FIXHIVE_CONTRIBUTOR_ID`
-- **Environment matching**: Better solution ranking based on your stack
-
-Quick upgrade:
-
-```bash
-# Update package
-npm install -g @the-magic-tower/fixhive-claude-code@latest
-
-# Remove old env vars (optional)
-# FIXHIVE_CONTRIBUTOR_ID and OPENAI_API_KEY are no longer needed
-```
-
 ## Installation
 
-### Using Claude Code CLI (Recommended)
+### Option 1: Install as Plugin (Recommended)
+
+```bash
+claude plugin add github:TheMagicTower/FixHive-ClaudeCode
+```
+
+This installs the complete plugin with slash commands and MCP tools.
+
+### Option 2: Install MCP Server Only
 
 ```bash
 claude mcp add fixhive -- npx -y @the-magic-tower/fixhive-claude-code@beta
 ```
 
-### Manual Configuration
+### Option 3: Manual Configuration
 
-**Project-level** (`.mcp.json` in your project root):
-
-```json
-{
-  "mcpServers": {
-    "fixhive": {
-      "command": "npx",
-      "args": ["-y", "@the-magic-tower/fixhive-claude-code@beta"]
-    }
-  }
-}
-```
-
-**Global** (`~/.claude.json`):
+Add to your project's `.mcp.json`:
 
 ```json
 {
@@ -79,7 +57,39 @@ claude mcp add fixhive -- npx -y @the-magic-tower/fixhive-claude-code@beta
 }
 ```
 
-**That's it!** FixHive connects to the community knowledge base by default. No environment variables required.
+## Plugin Structure
+
+```
+fixhive/
+├── .claude-plugin/
+│   └── plugin.json       # Plugin metadata
+├── commands/
+│   ├── search.md         # /fixhive:search command
+│   └── report.md         # /fixhive:report command
+├── .mcp.json             # MCP server configuration
+└── src/                  # MCP server source code
+```
+
+## Usage
+
+### Slash Commands
+
+- `/fixhive:search` - Search for error solutions
+- `/fixhive:report` - Report an error resolution
+
+### MCP Tools
+
+- `fixhive_search_cases` - Search knowledge base with environment matching
+- `fixhive_report_resolution` - Report a resolution to the community
+- `fixhive_vote` - Vote on solution quality (up/down/report)
+
+## Upgrading from v1.x
+
+See [Migration Guide](MIGRATION.md) for breaking changes:
+
+- Tool names changed: `fixhive_search` → `fixhive_search_cases`
+- Local storage removed (cloud-only)
+- Automatic device ID (no need for `FIXHIVE_CONTRIBUTOR_ID`)
 
 ## How It Works
 

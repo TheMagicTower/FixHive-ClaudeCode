@@ -1,0 +1,20 @@
+{
+  "name": "fixhive",
+  "version": "0.2.0-beta.1",
+  "description": "Community-based Error Knowledge Sharing (CodeCaseDB v2.0)",
+  "author": "The Magic Tower",
+  "repository": "https://github.com/TheMagicTower/FixHive-ClaudeCode",
+  "commands": [
+    {
+      "name": "search",
+      "description": "Search FixHive for error solutions"
+    },
+    {
+      "name": "report",
+      "description": "Report an error resolution to the community"
+    }
+  ],
+  "mcp": {
+    "servers": ["fixhive"]
+  }
+}
