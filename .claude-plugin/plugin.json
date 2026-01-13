@@ -4,17 +4,10 @@
   "description": "Community-based Error Knowledge Sharing (CodeCaseDB v2.0)",
   "author": "The Magic Tower",
   "repository": "https://github.com/TheMagicTower/FixHive-ClaudeCode",
-  "commands": [
-    {
-      "name": "search",
-      "description": "Search FixHive for error solutions"
-    },
-    {
-      "name": "report",
-      "description": "Report an error resolution to the community"
+  "mcpServers": {
+    "fixhive": {
+      "command": "npx",
+      "args": ["-y", "@the-magic-tower/fixhive-claude-code@beta"]
     }
-  ],
-  "mcp": {
-    "servers": ["fixhive"]
   }
 }
