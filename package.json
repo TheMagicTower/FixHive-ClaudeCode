@@ -1,6 +1,6 @@
 {
   "name": "@the-magic-tower/fixhive-claude-code",
-  "version": "0.2.0-beta.1",
+  "version": "0.2.0-beta.2",
   "description": "Community-based Error Knowledge Sharing for Claude Code (CodeCaseDB v2.0)",
   "type": "module",
   "main": "dist/index.js",
