@@ -3,7 +3,7 @@
   "version": "0.2.0-beta.1",
   "description": "Community-based Error Knowledge Sharing (CodeCaseDB v2.0)",
   "author": "The Magic Tower",
-  "repository": "https://github.com/TheMagicTower/FixHiveMono",
+  "repository": "https://github.com/TheMagicTower/FixHive-ClaudeCode",
   "commands": [
     {
       "name": "search",
