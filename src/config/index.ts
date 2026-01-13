@@ -10,6 +10,14 @@ import { getDeviceId } from '@the-magic-tower/fixhive-shared';
 import type { FixHiveConfig } from '../types/index.js';
 import { configSchema, validateSupabaseConfig } from './schema.js';
 
+/**
+ * Default FixHive Community Supabase
+ */
+const COMMUNITY_SUPABASE = {
+  url: 'https://flpqzkrpufrgnpxvftip.supabase.co',
+  anonKey: 'sb_publishable_w3Y2uo-0vb4bFVamntChVw_Aqi0rv2y',
+};
+
 let cachedConfig: FixHiveConfig | null = null;
 
 /**
@@ -31,8 +39,8 @@ export function loadConfig(): FixHiveConfig {
   }
 
   const rawConfig = {
-    supabaseUrl: process.env.FIXHIVE_SUPABASE_URL,
-    supabaseKey: process.env.FIXHIVE_SUPABASE_KEY,
+    supabaseUrl: process.env.FIXHIVE_SUPABASE_URL || COMMUNITY_SUPABASE.url,
+    supabaseKey: process.env.FIXHIVE_SUPABASE_KEY || COMMUNITY_SUPABASE.anonKey,
     localDbPath: process.env.FIXHIVE_DB_PATH || '~/.fixhive/data.db',
     logLevel: process.env.FIXHIVE_LOG_LEVEL || 'info',
   };

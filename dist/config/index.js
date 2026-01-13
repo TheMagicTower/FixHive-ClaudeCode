@@ -7,6 +7,13 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { getDeviceId } from '@the-magic-tower/fixhive-shared';
 import { configSchema, validateSupabaseConfig } from './schema.js';
+/**
+ * Default FixHive Community Supabase
+ */
+const COMMUNITY_SUPABASE = {
+    url: 'https://flpqzkrpufrgnpxvftip.supabase.co',
+    anonKey: 'sb_publishable_w3Y2uo-0vb4bFVamntChVw_Aqi0rv2y',
+};
 let cachedConfig = null;
 /**
  * 경로에서 ~ 를 홈 디렉토리로 확장
@@ -25,8 +32,8 @@ export function loadConfig() {
         return cachedConfig;
     }
     const rawConfig = {
-        supabaseUrl: process.env.FIXHIVE_SUPABASE_URL,
-        supabaseKey: process.env.FIXHIVE_SUPABASE_KEY,
+        supabaseUrl: process.env.FIXHIVE_SUPABASE_URL || COMMUNITY_SUPABASE.url,
+        supabaseKey: process.env.FIXHIVE_SUPABASE_KEY || COMMUNITY_SUPABASE.anonKey,
         localDbPath: process.env.FIXHIVE_DB_PATH || '~/.fixhive/data.db',
         logLevel: process.env.FIXHIVE_LOG_LEVEL || 'info',
     };
