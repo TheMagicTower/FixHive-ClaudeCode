@@ -45,9 +45,15 @@ npm install -g @the-magic-tower/fixhive-claude-code@latest
 
 ## Installation
 
-Add FixHive to your Claude Code MCP settings.
+### Using Claude Code CLI (Recommended)
 
-**Option 1: Project-level** (`.mcp.json` in your project root):
+```bash
+claude mcp add fixhive -- npx -y @the-magic-tower/fixhive-claude-code@beta
+```
+
+### Manual Configuration
+
+**Project-level** (`.mcp.json` in your project root):
 
 ```json
 {
@@ -60,7 +66,7 @@ Add FixHive to your Claude Code MCP settings.
 }
 ```
 
-**Option 2: Global** (`~/.claude.json`):
+**Global** (`~/.claude.json`):
 
 ```json
 {
@@ -72,8 +78,6 @@ Add FixHive to your Claude Code MCP settings.
   }
 }
 ```
-
-Then run Claude Code - the MCP server will be automatically downloaded and started.
 
 **That's it!** FixHive connects to the community knowledge base by default. No environment variables required.
 
