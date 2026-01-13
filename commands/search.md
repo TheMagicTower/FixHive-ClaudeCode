@@ -1,3 +1,7 @@
+---
+description: Search FixHive for error solutions from the community knowledge base
+---
+
 # FixHive Search
 
 Search the community knowledge base for error solutions.

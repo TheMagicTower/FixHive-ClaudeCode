@@ -1,3 +1,7 @@
+---
+description: Report an error resolution to help the community
+---
+
 # FixHive Report
 
 Report an error resolution to help the community.
