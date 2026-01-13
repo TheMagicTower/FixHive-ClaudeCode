@@ -28,21 +28,29 @@ FixHive is a Claude Code plugin that provides slash commands, MCP tools, and int
 
 ## Installation
 
-### Option 1: Install as Plugin (Recommended)
-
-```bash
-claude plugin add github:TheMagicTower/FixHiveMono
-```
-
-This installs the complete plugin with slash commands and MCP tools.
-
-### Option 2: Install MCP Server Only
+### Option 1: MCP Server (Recommended)
 
 ```bash
 claude mcp add fixhive -- npx -y @the-magic-tower/fixhive-claude-code@beta
 ```
 
-### Option 3: Manual Configuration
+This installs the MCP server with 3 tools: `fixhive_search_cases`, `fixhive_report_resolution`, `fixhive_vote`.
+
+### Option 2: Full Plugin (with Slash Commands)
+
+Clone the repository and use `--plugin-dir`:
+
+```bash
+# Clone to a permanent location
+git clone https://github.com/TheMagicTower/FixHive-ClaudeCode.git ~/.claude-plugins/fixhive
+
+# Run Claude Code with plugin
+claude --plugin-dir ~/.claude-plugins/fixhive
+```
+
+This adds slash commands (`/fixhive:search`, `/fixhive:report`) in addition to MCP tools.
+
+### Option 3: Manual MCP Configuration
 
 Add to your project's `.mcp.json`:
 
